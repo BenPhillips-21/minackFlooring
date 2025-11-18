@@ -1,0 +1,13 @@
+[build]
+  command = "ng build --configuration production"
+  publish = "dist/flooring-services/browser"
+
+[dev]
+  command = "ng serve"
+  publish = "dist/flooring-services/browser"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
