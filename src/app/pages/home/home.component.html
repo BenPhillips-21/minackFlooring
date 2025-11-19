@@ -1,22 +1,16 @@
 <div class="home-container">
   <section class="hero-section">
     <img 
-      ngSrc="/assets/flooring_small.avif"
-      alt=""
+      src="/assets/flooring_small.avif"
+      alt="hero image placeholder"
       class="hero-background-image hero-placeholder"
       [class.fade-out]="heroImageLoaded"
-      priority
-      fill
-      sizes="100vw"
     />
     <img 
-      ngSrc="/assets/flooring.avif"
-      alt=""
+      src="/assets/flooring1.avif"
+      alt="hero image"
       class="hero-background-image hero-full-image"
       [class.loaded]="heroImageLoaded"
-      priority
-      fill
-      sizes="100vw"
       (load)="onHeroImageLoad()"
     />
     <div class="hero-overlay"></div>
