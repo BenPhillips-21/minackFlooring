@@ -1,8 +1,10 @@
+import { isDevMode } from '@angular/core';
 import { ImageLoaderConfig } from '@angular/common';
+import { getNetlifyImageUrl } from './utils.service';
 
 /**
- * Image loader for NgOptimizedImage that serves images as static assets
- * Bypasses CDN optimization and serves images directly from the assets folder
+ * Custom image loader for NgOptimizedImage that works with Netlify Image CDN
+ * Receives ImageLoaderConfig from NgOptimizedImage and returns optimized CDN URLs
  * 
  * Example usage:
  * ```typescript
@@ -11,7 +13,7 @@ import { ImageLoaderConfig } from '@angular/common';
  * providers: [
  *   {
  *     provide: IMAGE_LOADER,
- *     useValue: imageLoader
+ *     useValue: netlifyImageLoader
  *   }
  * ]
  * ```
@@ -21,15 +23,23 @@ import { ImageLoaderConfig } from '@angular/common';
  * <img ngSrc="/assets/image.jpg" width="800" height="600" alt="Description">
  * ```
  * 
- * @param config - Image loader configuration from Angular
- * @returns The direct asset path URL
+ * @param config - Image loader configuration from Angular (includes src, width, etc.)
+ * @returns The optimized Netlify Image CDN URL or direct asset path in development
  */
-export function imageLoader(config: ImageLoaderConfig): string {
-  const { src } = config;
+export function netlifyImageLoader(config: ImageLoaderConfig): string {
+  const { src, width } = config;
   
-  // Always use direct asset path - serve as static assets
-  // Remove leading slash if present for local assets
-  const cleanSrc = src.startsWith('/') ? src.slice(1) : src;
-  return `/${cleanSrc}`;
+  // In development, use direct asset path
+  if (isDevMode()) {
+    const cleanSrc = src.startsWith('/') ? src.slice(1) : src;
+    return `/${cleanSrc}`;
+  }
+  
+  // In production, use Netlify Image CDN with width optimization
+  // Cap the width to a reasonable maximum for performance
+  const maxWidth = 1920;
+  const optimizedWidth = width && width > maxWidth ? maxWidth : width;
+  
+  return getNetlifyImageUrl(src, optimizedWidth);
 }
 
