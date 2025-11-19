@@ -18,6 +18,20 @@ export interface ServiceItem {
   styleUrl: './services-grid.component.scss'
 })
 export class ServicesGridComponent {
+  loadedImages: Set<string> = new Set();
+  
+  getSmallImagePath(imagePath: string): string {
+    // Replace the file extension with _small.avif
+    return imagePath.replace(/\.avif$/, '_small.avif');
+  }
+  
+  isImageLoaded(imagePath: string): boolean {
+    return this.loadedImages.has(imagePath);
+  }
+  
+  onImageLoad(imagePath: string) {
+    this.loadedImages.add(imagePath);
+  }
   services: ServiceItem[] = [
     {
       name: 'Laminate',

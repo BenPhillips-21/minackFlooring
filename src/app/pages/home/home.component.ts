@@ -1,7 +1,6 @@
-import { Component, isDevMode, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { getNetlifyImageUrl } from '../../utils/utils.service';
 import { FaqComponent } from '../../components/faq/faq.component';
 import { QuoteComponent } from '../../components/quote/quote.component';
 
@@ -16,11 +15,15 @@ export class HomeComponent implements AfterViewInit {
   @ViewChild('aboutImage') aboutImage!: ElementRef<HTMLImageElement>;
   @ViewChild('servicesImage') servicesImage!: ElementRef<HTMLImageElement>;
   
-  heroImageUrl: string;
+  heroImageLoaded = false;
   
   // Image paths for NgOptimizedImage
   aboutImagePath = '/assets/flooringVetical4_result1.avif';
   servicesImagePath = '/assets/flooringVertical3_result1.avif';
+  
+  onHeroImageLoad() {
+    this.heroImageLoaded = true;
+  }
   
   servicesList = [
     {
@@ -62,13 +65,7 @@ export class HomeComponent implements AfterViewInit {
   ];
   
   constructor() {
-    // Hero image uses background-image, so we still need the URL
-    // NgOptimizedImage handles the other images automatically
-    if (isDevMode()) {
-      this.heroImageUrl = '/assets/mainHero_result1.avif';
-    } else {
-      this.heroImageUrl = getNetlifyImageUrl('/assets/mainHero_result1.avif');
-    }
+    // All images now use NgOptimizedImage which handles optimization automatically
   }
 
   ngAfterViewInit() {

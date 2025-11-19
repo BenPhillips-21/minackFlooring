@@ -1,5 +1,22 @@
 <div class="home-container">
-  <section class="hero-section" [style.background-image]="'url(' + heroImageUrl + ')'">
+  <section class="hero-section">
+    <img 
+      ngSrc="/assets/flooring_small.avif"
+      alt=""
+      class="hero-background-image hero-placeholder"
+      [class.fade-out]="heroImageLoaded"
+      priority
+      fill
+    />
+    <img 
+      ngSrc="/assets/flooring.avif"
+      alt=""
+      class="hero-background-image hero-full-image"
+      [class.loaded]="heroImageLoaded"
+      priority
+      fill
+      (load)="onHeroImageLoad()"
+    />
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <h1 class="hero-title">Transforming Spaces, One Step at a Time</h1>
@@ -12,7 +29,7 @@
     <div class="about-container">
       <div class="about-image-wrapper">
         <img 
-          ngSrc="/assets/flooringVertical4_result1.avif"
+          ngSrc="/assets/flooringVetical4_result1.avif"
           alt="Flooring" 
           class="about-image"
           width="600"
