@@ -36,7 +36,13 @@ export function netlifyImageLoader(config: ImageLoaderConfig): string {
     return `/${cleanSrc}`;
   }
   
+  // Cap the width to a reasonable maximum for performance
+  // Most displays are 1920px or less, and even 2x DPI means 3840px max
+  // Capping at 1920px reduces file size significantly while maintaining quality
+  const maxWidth = 1920;
+  const optimizedWidth = width && width > maxWidth ? maxWidth : width;
+  
   // In production, use Netlify CDN
-  return getNetlifyImageUrl(src, width);
+  return getNetlifyImageUrl(src, optimizedWidth);
 }
 
