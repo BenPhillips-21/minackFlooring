@@ -19,8 +19,8 @@ export class HomeComponent implements AfterViewInit {
   heroImageUrl: string;
   
   // Image paths for NgOptimizedImage
-  aboutImagePath = '/assets/flooringVetical4_result.avif';
-  servicesImagePath = '/assets/flooringVertical3_result.avif';
+  aboutImagePath = '/assets/flooringVertical4_result1.avif';
+  servicesImagePath = '/assets/flooringVertical3_result1.avif';
   
   servicesList = [
     {
@@ -65,9 +65,9 @@ export class HomeComponent implements AfterViewInit {
     // Hero image uses background-image, so we still need the URL
     // NgOptimizedImage handles the other images automatically
     if (isDevMode()) {
-      this.heroImageUrl = '/assets/mainHero_result.avif';
+      this.heroImageUrl = '/assets/mainHero_result1.avif';
     } else {
-      this.heroImageUrl = getNetlifyImageUrl('/assets/mainHero_result.avif');
+      this.heroImageUrl = getNetlifyImageUrl('/assets/mainHero_result1.avif');
     }
   }
 
