@@ -25,6 +25,18 @@ export class ServicesGridComponent {
     return imagePath.replace(/\.avif$/, '_small.avif');
   }
   
+  getSizes(isLandscape: boolean): string {
+    // Landscape images span 2 columns on tablet/desktop
+    // Portrait images span 1 column
+    if (isLandscape) {
+      // Mobile: 100vw, Tablet: 100vw (2 of 2 columns), Desktop: 66vw (2 of 3 columns)
+      return '(max-width: 767px) 100vw, (max-width: 1023px) 100vw, 66vw';
+    } else {
+      // Mobile: 100vw, Tablet: 50vw (1 of 2 columns), Desktop: 33vw (1 of 3 columns)
+      return '(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw';
+    }
+  }
+  
   isImageLoaded(imagePath: string): boolean {
     return this.loadedImages.has(imagePath);
   }

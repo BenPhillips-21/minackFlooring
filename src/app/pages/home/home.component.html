@@ -7,6 +7,7 @@
       [class.fade-out]="heroImageLoaded"
       priority
       fill
+      sizes="100vw"
     />
     <img 
       ngSrc="/assets/flooring.avif"
@@ -15,6 +16,7 @@
       [class.loaded]="heroImageLoaded"
       priority
       fill
+      sizes="100vw"
       (load)="onHeroImageLoad()"
     />
     <div class="hero-overlay"></div>
@@ -34,6 +36,7 @@
           class="about-image"
           width="600"
           height="800"
+          sizes="(max-width: 968px) 100vw, 50vw"
           #aboutImage
           priority
         />
@@ -74,6 +77,7 @@
           class="services-image"
           width="600"
           height="800"
+          sizes="(max-width: 968px) 100vw, 50vw"
           #servicesImage
         />
       </div>

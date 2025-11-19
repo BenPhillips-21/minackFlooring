@@ -12,6 +12,7 @@
           [alt]=""
           [width]="service.width"
           [height]="service.height"
+          [sizes]="getSizes(service.isLandscape)"
           class="service-image service-placeholder"
           [class.fade-out]="isImageLoaded(service.imagePath)"
         />
@@ -20,6 +21,7 @@
           [alt]="service.name"
           [width]="service.width"
           [height]="service.height"
+          [sizes]="getSizes(service.isLandscape)"
           class="service-image service-full-image"
           [class.loaded]="isImageLoaded(service.imagePath)"
           (load)="onImageLoad(service.imagePath)"
