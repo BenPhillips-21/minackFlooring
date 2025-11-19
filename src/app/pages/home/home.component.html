@@ -3,9 +3,80 @@
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <h1 class="hero-title">Transforming Spaces, One Step at a Time</h1>
-      <p class="hero-subtitle">Gesani delivers quality carpet and timber solutions with care and transparency. Your trust is our priority. Based in Melbourne.</p>
-      <button class="cta-button">Get Free Quote</button>
+      <p class="hero-subtitle">Minack Flooring delivers quality carpet and timber solutions with care and transparency. Your trust is our priority. Based in Melbourne.</p>
+      <button class="cta-button" routerLink="/contact">Get Free Quote</button>
     </div>
   </section>
+  
+  <section class="about-section">
+    <div class="about-container">
+      <div class="about-image-wrapper">
+        <img 
+          ngSrc="/assets/flooringVetical4_result.avif"
+          alt="Flooring" 
+          class="about-image"
+          width="600"
+          height="800"
+          #aboutImage
+          priority
+        />
+      </div>
+      <div class="about-content">
+        <h2 class="about-title">Bringing Comfort and Style to Life with Expert Flooring Solutions</h2>
+        <p class="about-description">
+          At Minack Flooring, we combine expertise and care to deliver premium carpet and timber flooring solutions tailored to your needs. As a family-run business, we prioritize transparency, reliability, and exceptional customer service, ensuring your spaces are transformed with style and comfort. Your satisfaction is at the heart of everything we do.
+        </p>
+        <button class="about-button" routerLink="/services">Learn More</button>
+      </div>
+    </div>
+  </section>
+  
+  <section class="services-section">
+    <div class="services-container">
+      <div class="services-content">
+        <h2 class="services-title">What we do</h2>
+        <div class="services-text">
+          <p>
+            At Minack Flooring & Co, we specialize in providing premium flooring solutions tailored to meet the unique needs of our clients. With a wide range of high-quality options, including carpet, timber, European Oak, laminate, hybrid flooring, parquetry, chevron, vinyl plank, and carpet tiles, we have something for every style and space.
+          </p>
+          <p>
+            Our services go beyond just offering flooring products. We provide expert advice to help you choose the perfect flooring for your home or business. From concept to installation, our skilled team ensures a seamless experience, delivering exceptional craftsmanship and attention to detail.
+          </p>
+          <p>
+            We also offer custom designs for intricate flooring styles such as parquetry and chevron, allowing you to create a space that is truly one-of-a-kind. Whether you're looking for durability, elegance, or functionality, our eco-friendly and sustainable options cater to both residential and commercial needs.
+          </p>
+          <p>
+            With a commitment to excellence, Minack Flooring is here to transform your space with flooring that enhances beauty, comfort, and value.
+          </p>
+        </div>
+      </div>
+      <div class="services-image-wrapper">
+        <img 
+          ngSrc="/assets/flooringVertical3_result.avif"
+          alt="Flooring Services" 
+          class="services-image"
+          width="600"
+          height="800"
+          #servicesImage
+        />
+      </div>
+    </div>
+  </section>
+  
+  <app-quote></app-quote>
+  
+  <section class="our-services-section">
+    <div class="our-services-container">
+      <h2 class="our-services-title">Our <span class="services-highlight">Services</span></h2>
+      <div class="services-grid">
+        <div class="service-card" *ngFor="let service of servicesList">
+          <h3 class="service-card-title">{{ service.name }}</h3>
+          <p class="service-card-description">{{ service.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <app-faq></app-faq>
 </div>
 

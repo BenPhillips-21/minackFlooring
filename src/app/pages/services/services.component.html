@@ -1,0 +1,36 @@
+<div class="services-page-container">
+  <section class="banner-section">
+    <div class="banner-content">
+      <h1 class="banner-heading">Products & Services</h1>
+      <p class="banner-text">
+        Minack Flooring offers premium flooring solutions and exceptional service, with plans to expand into professional cleaning soon.
+      </p>
+      <button class="quote-button" (click)="onGetQuote()">Get A Free Quote</button>
+    </div>
+  </section>
+  
+  <section class="grid-section">
+    <app-services-grid></app-services-grid>
+  </section>
+  
+  <section class="process-section">
+    <div class="process-container">
+      <h2 class="process-title">Our <span class="process-highlight">Process</span></h2>
+      <p class="process-subtitle">From initial contact to your finished floor, we guide you through every step with transparency and expertise.</p>
+      <div class="process-steps">
+        <div class="process-step" *ngFor="let step of processSteps">
+          <div class="step-number">{{ step.number }}</div>
+          <div class="step-content">
+            <h3 class="step-title">{{ step.title }}</h3>
+            <p class="step-description">{{ step.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <app-quote></app-quote>
+  
+  <app-faq></app-faq>
+</div>
+

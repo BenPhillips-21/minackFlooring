@@ -1,4 +1,5 @@
 import { isDevMode } from '@angular/core';
+import { ImageLoaderConfig } from '@angular/common';
 import { getNetlifyImageUrl } from './utils.service';
 
 /**
@@ -22,7 +23,7 @@ import { getNetlifyImageUrl } from './utils.service';
  * <img ngSrc="/assets/image.jpg" width="800" height="600" alt="Description">
  * ```
  * 
- * @param config - Image loader configuration
+ * @param config - Image loader configuration from Angular
  * @returns The optimized image URL
  */
 export function netlifyImageLoader(config: ImageLoaderConfig): string {
@@ -37,11 +38,5 @@ export function netlifyImageLoader(config: ImageLoaderConfig): string {
   
   // In production, use Netlify CDN
   return getNetlifyImageUrl(src, width);
-}
-
-// Type definition for ImageLoaderConfig (matches Angular's type)
-export interface ImageLoaderConfig {
-  src: string;
-  width?: number;
 }
 

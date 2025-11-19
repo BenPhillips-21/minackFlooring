@@ -15,15 +15,8 @@ export class FooterComponent {
   footerLinks = [
     { label: 'Home', path: '/' },
     { label: 'Services', path: '/services' },
-    { label: 'About', path: '/about' },
-    { label: 'Gallery', path: '/gallery' },
+    { label: 'Testimonials', path: '/testimonials' },
     { label: 'Contact', path: '/contact' }
-  ];
-  
-  socialLinks = [
-    { label: 'Facebook', url: '#' },
-    { label: 'Instagram', url: '#' },
-    { label: 'LinkedIn', url: '#' }
   ];
 }
 

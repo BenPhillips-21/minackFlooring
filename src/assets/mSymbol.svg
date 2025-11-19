@@ -1,0 +1,18 @@
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <path id="circlePath"
+        d="M 200, 225
+           m -150, 0
+           a 150,150 0 1,0 300,0
+           a 150,150 0 1,0 -300,0"
+        fill="none" stroke="none" />
+
+  <text font-family="Inter, sans-serif" font-size="28" fill="#333333" text-anchor="middle">
+    <textPath href="#circlePath" startOffset="50%">
+      -----------------------------------------------------------------------------------------------------
+    </textPath>
+  </text>
+
+  <text x="200" y="240" font-family="Inter, sans-serif" font-size="150" fill="#333333" text-anchor="middle" dominant-baseline="middle">
+    M
+  </text>
+</svg>

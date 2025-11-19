@@ -1,0 +1,26 @@
+<div class="services-grid-container">
+  <div class="services-grid">
+    <div 
+      class="service-item" 
+      *ngFor="let service of services"
+      [class.landscape]="service.isLandscape"
+      [class.portrait]="!service.isLandscape"
+    >
+      <div class="service-image-wrapper">
+        <img 
+          [ngSrc]="service.imagePath"
+          [alt]="service.name"
+          [width]="service.width"
+          [height]="service.height"
+          class="service-image"
+        />
+        <div class="service-overlay"></div>
+      </div>
+      <div class="service-content">
+        <h3 class="service-heading">{{ service.name }}</h3>
+        <p class="service-description">{{ service.description }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+

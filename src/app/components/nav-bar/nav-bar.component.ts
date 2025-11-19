@@ -13,8 +13,7 @@ export class NavBarComponent {
   menuItems = [
     { label: 'Home', path: '/' },
     { label: 'Services', path: '/services' },
-    { label: 'About', path: '/about' },
-    { label: 'Gallery', path: '/gallery' },
+    { label: 'Testimonials', path: '/testimonials' },
     { label: 'Contact', path: '/contact' }
   ];
 }
