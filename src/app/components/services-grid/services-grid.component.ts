@@ -62,7 +62,7 @@ export class ServicesGridComponent {
     {
       name: 'Parquetry',
       description: 'Custom parquetry designs for unique and intricate flooring patterns that add character to any space.',
-      imagePath: '/assets/flooringVertical3_result11.avif',
+      imagePath: '/assets/flooringVertical3_result1.avif',
       isLandscape: false,
       width: 600,
       height: 800

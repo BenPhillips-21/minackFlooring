@@ -19,7 +19,7 @@ export class HomeComponent implements AfterViewInit {
   heroImageUrl: string;
   
   // Image paths for NgOptimizedImage
-  aboutImagePath = '/assets/flooringVertical4_result1.avif';
+  aboutImagePath = '/assets/flooringVetical4_result1.avif';
   servicesImagePath = '/assets/flooringVertical3_result1.avif';
   
   servicesList = [
