@@ -1,10 +1,8 @@
-import { isDevMode } from '@angular/core';
 import { ImageLoaderConfig } from '@angular/common';
-import { getNetlifyImageUrl } from './utils.service';
 
 /**
- * Custom image loader for NgOptimizedImage that works with Netlify CDN
- * Use this with NgOptimizedImage directive for <img> tags
+ * Image loader for NgOptimizedImage that serves images as static assets
+ * Bypasses CDN optimization and serves images directly from the assets folder
  * 
  * Example usage:
  * ```typescript
@@ -13,7 +11,7 @@ import { getNetlifyImageUrl } from './utils.service';
  * providers: [
  *   {
  *     provide: IMAGE_LOADER,
- *     useValue: netlifyImageLoader
+ *     useValue: imageLoader
  *   }
  * ]
  * ```
@@ -24,25 +22,14 @@ import { getNetlifyImageUrl } from './utils.service';
  * ```
  * 
  * @param config - Image loader configuration from Angular
- * @returns The optimized image URL
+ * @returns The direct asset path URL
  */
-export function netlifyImageLoader(config: ImageLoaderConfig): string {
-  const { src, width } = config;
+export function imageLoader(config: ImageLoaderConfig): string {
+  const { src } = config;
   
-  // In development, use direct asset path
-  if (isDevMode()) {
-    // Remove leading slash if present for local assets
-    const cleanSrc = src.startsWith('/') ? src.slice(1) : src;
-    return `/${cleanSrc}`;
-  }
-  
-  // Cap the width to a reasonable maximum for performance
-  // Most displays are 1920px or less, and even 2x DPI means 3840px max
-  // Capping at 1920px reduces file size significantly while maintaining quality
-  const maxWidth = 1920;
-  const optimizedWidth = width && width > maxWidth ? maxWidth : width;
-  
-  // In production, use Netlify CDN
-  return getNetlifyImageUrl(src, optimizedWidth);
+  // Always use direct asset path - serve as static assets
+  // Remove leading slash if present for local assets
+  const cleanSrc = src.startsWith('/') ? src.slice(1) : src;
+  return `/${cleanSrc}`;
 }
 
